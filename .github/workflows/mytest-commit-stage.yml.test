@@ -1,0 +1,21 @@
+name: MyCommitStage
+on: push
+
+  jobs:
+    builds:
+     name: MyBuid and Test
+     runs-on: ubuntu-22.04
+     permissions:
+       contents: read
+       security-events: write
+     steps:
+       - name: checkout source code
+         uses: actions/checkout@v3
+       - name: set up jdk
+         uses: actions/setup-java@v3
+         with:
+           distribution: temurin
+           java-version: 17
+           cache: gradle
+     
+  
