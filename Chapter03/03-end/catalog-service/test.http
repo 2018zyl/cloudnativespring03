@@ -1,0 +1,47 @@
+### 查询所有图书
+GET http://localhost:9001/books
+Accept: application/json
+
+### 根据ISBN查询图书
+GET http://localhost:9001/books/1234567890
+Accept: application/json
+
+### 新增图书
+POST http://localhost:9001/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "isbn": "1234567890",
+  "title": "Cloud Native Spring in Action",
+  "author": "Thomas Vitale",
+  "price": 49.99
+}
+
+### 修改图书
+PUT http://localhost:9001/books/1234567890
+Content-Type: application/json
+Accept: application/json
+
+{
+  "isbn": "1234567890",
+  "title": "Cloud Native Spring in Action (2nd Edition)",
+  "author": "Thomas Vitale",
+  "price": 59.99
+}
+
+### 删除图书
+DELETE http://localhost:9001/books/1234567890
+Accept: application/json
+
+### 新增图书（13位ISBN）
+POST http://localhost:9001/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "isbn": "9781234567890",
+  "title": "Effective Java",
+  "author": "Joshua Bloch",
+  "price": 39.99
+}

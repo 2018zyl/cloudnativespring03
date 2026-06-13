@@ -6,11 +6,16 @@ plugins {
 
 group = 'com.polarbookshop'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
 
 description = 'Provides functionality for managing the books in the catalog.'
 
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+}
+
 repositories {
+	maven { url 'https://maven.aliyun.com/repository/public/' }
+	maven { url 'https://maven.aliyun.com/repository/central/' }
 	mavenCentral()
 }
 
@@ -21,4 +26,12 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+// 优化依赖解析
+configurations.all {
+	resolutionStrategy {
+		cacheChangingModulesFor 0, 'seconds'
+		cacheDynamicVersionsFor 0, 'seconds'
+	}
 }
